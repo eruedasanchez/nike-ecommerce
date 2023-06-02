@@ -12,18 +12,18 @@
     <div class="menu-list-products-container"> <!-- Contenedor del menu y del listado de productos --> 
         
         <!--Inicio menu hamburguesa (version mobile)-->
-        <header class="header-menu-mobile">
+        <!-- <header class="header-menu-mobile">
             <img class="logo" width="20" height="20" src="./assets/img/logo-nike.png" alt="logo Nike">
             <button class="open-menu" id="open-menu">
                 <i class="bi bi-list"></i>
             </button>
-        </header>
+        </header> -->
         <!--Fin menu hamburguesa (version mobile)-->
         
         <aside>  <!-- class="aside-visible" -->
-            <button class="close-menu" id="close-menu">
+            <!-- <button class="close-menu" id="close-menu">
                 <i class="bi bi-x"></i>
-            </button>
+            </button> -->
             
             <!-- Inicio menu (version desktop) -->
             <header>
@@ -31,31 +31,31 @@
             </header>
             <nav>
                 <ul class="menu">
+                    <li><button id="allproducts" class="btn-menu btn-category active"><i class="bi bi-caret-right-fill"></i>Toda la ropa</button></li>
                     <li><button id="tshirts" class="btn-menu btn-category"><i class="bi bi-caret-right-fill"></i>Remeras y Camisetas</button></li>
                     <li><button id="trousers" class="btn-menu btn-category"><i class="bi bi-caret-right-fill"></i>Pantalones y Calzas</button></li>
                     <li><button id="jackets"  class="btn-menu btn-category"><i class="bi bi-caret-right-fill"></i>Buzos y Camperas</button></li>
-                    <li><button id="allproducts" class="btn-menu btn-category active"><i class="bi bi-caret-right-fill"></i>Toda la ropa</button></li>
                     <li><a class="btn-bag" href="./pages/carrito.html"><i class="bi bi-bag"></i>Carrito<span id="quantity" class="quantity">0</span></a></li>
                 </ul>
             </nav>
             <!-- Fin menu (version desktop) -->
+            <footer>
+                <p class="footer-text">© 2023 Nike Inc. Todos los derechos reservados</p>
+            </footer>
         </aside>
         <main>
             <!-- Listado de productos -->
             <h1 id="main-title" class="main-title">Toda la ropa</h1>
             <div id="products-container" class="products-container">
                 <!-- Inicio codigo que se inserta en main.js 
-                <img class="img-product" src="${producto.imagen}" alt="${producto.titulo}">
-                <div class="details-product">
-                    <h2 class="title-product">${producto.titulo}</h2>
-                    <p class="price-product">$${producto.precio}</p>
+                <img class="product-img" src="${producto.imagen}" alt="${producto.titulo}">
+                <div class="product-details">
+                    <h2 class="product-title">${producto.titulo}</h2>
+                    <p class="product-price">$${producto.precio}</p>
                     <button class="add-product" id="${producto.id}">Agregar</button>
                 </div> 
                 Fin codigo que se inserta en main.js -->
             </div>
-            <footer>
-                <p class="footer-text">© 2023 Nike Inc. Todos los derechos reservados</p>
-            </footer>
         </main>
     </div>
     <script src="./js/main.js"></script>

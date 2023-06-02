@@ -3,3 +3,56 @@
     padding: $padding;
     box-sizing: $boxsizing;
 }
+
+@mixin marginPadding($margin, $padding){
+    margin: $margin;
+    padding: $padding;
+}
+
+@mixin listStyle($ls){
+    list-style: $ls;
+}
+
+@mixin textDecoration($td){
+    text-decoration: $td;
+}
+
+@mixin grid($gcols, $grows){
+    display: grid;
+    grid-template-columns: $gcols;
+    grid-template-rows: $grows;
+}
+
+@mixin flexbox($fdirection, $jcontent, $aitems){
+    display: flex;
+    flex-direction: $fdirection;
+    justify-content: $jcontent;
+    align-items: $aitems;
+}
+
+@mixin dimentions($width, $height){
+    width: $width;
+    height: $height;
+}
+
+@mixin padding($ptop, $pbottom, $pleft, $pright){
+    padding-top: $ptop;
+    padding-bottom: $pbottom;
+    padding-left: $pleft;
+    padding-right: $pright;
+}
+
+@mixin textStyle($color, $fsize, $fweight){
+    color: $color;
+    font-size: $fsize;
+    font-weight: $fweight;
+}
+
+
+
+
+
+
+
+
+
