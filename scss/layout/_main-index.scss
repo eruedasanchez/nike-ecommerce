@@ -1,3 +1,5 @@
+/***************************** index.html *****************************/
+
 h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul{
     @include marginPadding(0,0);
 }
@@ -54,6 +56,15 @@ aside{
     @include textStyle($color-black, 0.85rem, 600);
     border: 0;
     cursor: pointer;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.btn-bag{
+    background-color: transparent;
+    @include dimentions(100%, none);
+    @include flexbox(row, none, center);
+    @include textStyle($color-black, 0.85rem, 600);
     gap: 1rem;
     padding: 1rem;
 }

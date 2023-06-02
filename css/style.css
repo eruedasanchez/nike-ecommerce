@@ -8,6 +8,7 @@
 body {
   font-family: "Kumbh Sans", sans-serif; }
 
+/***************************** index.html *****************************/
 h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
   margin: 0;
   padding: 0; }
@@ -57,6 +58,20 @@ aside {
   font-weight: 600;
   border: 0;
   cursor: pointer;
+  gap: 1rem;
+  padding: 1rem; }
+
+.btn-bag {
+  background-color: transparent;
+  width: 100%;
+  height: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: none;
+  align-items: center;
+  color: #121212;
+  font-size: 0.85rem;
+  font-weight: 600;
   gap: 1rem;
   padding: 1rem; }
 
@@ -157,3 +172,91 @@ main {
   color: #525252;
   font-size: 0.85rem;
   font-weight: none; }
+
+/***************************** carrito.html *****************************/
+.bag-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  gap: 1.5rem; }
+
+.empty-bag, .finish-purchase {
+  color: #fcfcfc;
+  /* display: none;  */ }
+
+.bag-products {
+  display: flex;
+  flex-direction: column;
+  justify-content: none;
+  align-items: none;
+  gap: 1rem; }
+
+.bag-product {
+  /* width: 100%; */
+  background-color: #525252;
+  color: #fcfcfc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  padding-right: 1.5rem;
+  border-radius: 1rem; }
+
+.bag-product-image {
+  width: 4rem;
+  border-radius: 1rem; }
+
+.bag-product-title small {
+  font-size: 0.75rem; }
+
+.bag-product-delete {
+  background-color: transparent;
+  border: 0;
+  color: #fcfcfc;
+  cursor: pointer; }
+
+.bag-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: none; }
+
+.bag-actions-clear {
+  background-color: #525252;
+  color: #fcfcfc;
+  border: 0;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+.bag-actions-details {
+  display: flex; }
+
+.bag-actions-total {
+  background-color: #525252;
+  color: #fcfcfc;
+  text-transform: uppercase;
+  display: flex;
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  gap: 1rem; }
+
+.bag-actions-buy {
+  background-color: #fcfcfc;
+  color: #121212;
+  border: 0;
+  padding: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+/* Como se trabaja responsive web design, se ocultan la siguientes clases
+en version desktop. luego, aplicando js apareceran en version mobile.
+*/
+.header-menu-mobile, .close-menu, .disabled {
+  display: none; }

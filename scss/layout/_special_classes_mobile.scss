@@ -1,0 +1,8 @@
+/* Como se trabaja responsive web design, se ocultan la siguientes clases
+en version desktop. luego, aplicando js apareceran en version mobile.
+*/
+
+.header-menu-mobile, .close-menu, .disabled{
+    display: none;  
+}
+
