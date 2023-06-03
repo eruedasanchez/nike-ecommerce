@@ -46,81 +46,11 @@ products.push(fourthJacket);
 const btnCategory = document.querySelectorAll(".btn-category");
 const productsContainer = document.querySelector("#products-container");
 const mainTitle = document.querySelector("#main-title");
-let btnAdd = document.querySelectorAll(".add-product");   // selecciono todos los botones "agregar"
+let btnAdd = document.querySelectorAll(".add-product");   // Seleccion de todos los botones "add"
 const quantity = document.querySelector("#quantity");
 
 
-/************************* FUNCTIONS **************************/
-
-function loadProducts(productsChosen){
-    productsContainer.innerHTML = "";           // Vacia el contenedor para que no vaya acumulando las categorias filtradas dado que se le aplica un append 
-    
-    productsChosen.forEach(product => {
-        const div = document.createElement("div"); // creacion del elemento div
-        div.classList.add("product"); // asignacion de la clase producto a div
-        div.innerHTML = `
-        <img class="product-img" src="${product.image}" alt="${product.name}">
-            <div class="product-details">
-                <h3 class="product-title">${product.name}</h3>
-                <p class="product-price">$${product.price}</p>
-                <button class="add-product" id="${product.id}">Agregar</button>
-            </div>
-        `;
-        
-        productsContainer.append(div);
-    })
-    refreshAddBtn();
-}
-
-loadProducts(products);
-
-
-/**** Filtrado de productos ****/
-
-btnCategory.forEach(btn => {
-    btn.addEventListener("click", (event) => {
-        btnCategory.forEach(btn => btn.classList.remove("active"));   // Elimina active de todos los botones que estaban activos
-        event.currentTarget.classList.add("active");                  // Activa el boton que se clickea 
-    
-        /* Filtrado de productos por categoria */
-        if(event.currentTarget.id != "allproducts"){
-            const categoryProducts = products.find(product => product.categoryId === event.currentTarget.id);
-            mainTitle.innerText = categoryProducts.categoryName;
-            const selected = products.filter(product => product.categoryId === event.currentTarget.id);
-            loadProducts(selected);
-        } else{
-            mainTitle.innerHTML = "Toda la ropa";
-            loadProducts(products);                                   // Evita que la lista quede vacia cuando se pasea del filtro de remeras a todos por ejemplo 
-        }
-    })
-});
-
-/* 
-refreshAddBtn() logra que cada vez que se carguen elementos nuevos, 
-tambien se actualicen los botones de agregar. 
-Es decir, vuelva a buscar en el HTML que funcionen todos los botones.
-La razon por la que no se declara btnAdd simplemente abajo de la 
-funcion loadProducts() es porque el contenedor de productos se vacia,
-los botones agregar son totalmente nuevos y no van a exitir para el documento. 
-*/
-
-function refreshAddBtn(){
-    btnAdd = document.querySelectorAll(".add-product");
-    btnAdd.forEach(btn => {
-        btn.addEventListener("click", addToBag);
-    })
-}
-
-
-let productsInBag;
-let productsInBagLocalStorage = localStorage.getItem("products-in-bag");
-
-if(productsInBagLocalStorage){
-    productsInBag = JSON.parse(productsInBagLocalStorage);
-    refreshQuantity();                                      // Se evita que el contador de productos vuelva a 0 cuando regresa de la pagina del carrito
-} else {
-    productsInBag = [];
-}
+/************************* START FUNCTIONS **************************/
 
 function addToBag(event){
     const idBtn = event.currentTarget.id;
@@ -145,4 +75,74 @@ function addToBag(event){
 function refreshQuantity(){
     let newQuantity = productsInBag.reduce((acc, product) => acc + product.cant, 0);   // Se cuenta la cantidad de productos del arreglo y como los repetidos se almacenan en cant, se aplica reduce 
     quantity.innerText = newQuantity;
+}
+
+/* 
+refreshAddBtn() logra que cada vez que se carguen elementos nuevos, 
+tambien se actualicen los botones de agregar. 
+Es decir, vuelva a buscar en el HTML que funcionen todos los botones.
+La razon por la que no se declara btnAdd simplemente abajo de la 
+funcion loadProducts() es porque el contenedor de productos se vacia,
+los botones agregar son totalmente nuevos y no van a exitir para el documento. 
+*/
+
+function refreshAddBtn(){
+    btnAdd = document.querySelectorAll(".add-product");
+    btnAdd.forEach(btn => {
+        btn.addEventListener("click", addToBag);
+    })
+}
+
+function loadProducts(productsChosen){
+    productsContainer.innerHTML = "";           // Vacia el contenedor para que no vaya acumulando las categorias filtradas dado que se le aplica un append 
+    
+    productsChosen.forEach(product => {
+        const div = document.createElement("div"); // creacion del elemento div
+        div.classList.add("product"); // asignacion de la clase producto a div
+        div.innerHTML = `
+        <img class="product-img" src="${product.image}" alt="${product.name}">
+            <div class="product-details">
+                <h3 class="product-title">${product.name}</h3>
+                <p class="product-price">$${product.price}</p>
+                <button class="add-product" id="${product.id}">Agregar</button>
+            </div>
+        `;
+        
+        productsContainer.append(div);
+    })
+    refreshAddBtn();
+}
+
+/************************* END FUNCTIONS **************************/
+
+loadProducts(products);
+
+/**** Filtrado de productos ****/
+
+btnCategory.forEach(btn => {
+    btn.addEventListener("click", (event) => {
+        btnCategory.forEach(btn => btn.classList.remove("active"));   // Elimina active de todos los botones que estaban activos
+        event.currentTarget.classList.add("active");                  // Activa el boton que se clickea 
+    
+        /* Filtrado de productos por categoria */
+        if(event.currentTarget.id != "allproducts"){
+            const categoryProducts = products.find(product => product.categoryId === event.currentTarget.id);
+            mainTitle.innerText = categoryProducts.categoryName;
+            const selected = products.filter(product => product.categoryId === event.currentTarget.id);
+            loadProducts(selected);
+        } else{
+            mainTitle.innerHTML = "Toda la ropa";
+            loadProducts(products);                                   // Evita que la lista quede vacia cuando se pasea del filtro de remeras a todos por ejemplo 
+        }
+    })
+});
+
+let productsInBag;
+let productsInBagLocalStorage = localStorage.getItem("products-in-bag");
+
+if(productsInBagLocalStorage){
+    productsInBag = JSON.parse(productsInBagLocalStorage);
+    refreshQuantity();                                      // Se evita que el contador de productos vuelva a 0 cuando regresa de la pagina del carrito
+} else {
+    productsInBag = [];
 }
