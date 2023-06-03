@@ -1,5 +1,6 @@
 // Se comienza verificando si hay algo en el carrito viendo el local Storage
 
+const CERO = 0;
 let productsInBag = localStorage.getItem("products-in-bag");
 productsInBag = JSON.parse(productsInBag);
 
@@ -12,10 +13,16 @@ const btnClear = document.querySelector("#bag-actions-clear");
 const btnBuy = document.querySelector("#bag-actions-buy"); 
 const containerTotal = document.querySelector("#total");
 
+/************************* START FUNCTIONS **************************/
+
+/* Las funciones son declaradas luego de inicializar las variables
+que funcionan como selectores simplemente por scope (me quedaria probar
+si declarando las funciones antes, el programa funciona igualmente). */ 
+
 function loadProductsInBag(){
     // Si no hay productos en el carritO JSON.parse(productsInBag) evalua a null y null -> false
     
-    if(productsInBag && productsInBag.length > 0){
+    if(productsInBag && productsInBag.length > CERO){
         emptyBagContainer.classList.add("disabled");
         productsBagContainer.classList.remove("disabled");
         bagActionsContainer.classList.remove("disabled");
@@ -61,9 +68,6 @@ function loadProductsInBag(){
     refreshTotal();
 }
 
-loadProductsInBag();        // Se cargan los productos en el carrito
-
-
 function refreshDeleteButtons(){
     buttonsDelete = document.querySelectorAll(".bag-product-delete");
 
@@ -82,8 +86,6 @@ function deleteOfBag(event){
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
 }
 
-btnClear.addEventListener("click", clearBag);
-
 function clearBag(){
     productsInBag.length = 0;
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
@@ -95,22 +97,19 @@ function refreshTotal(){
     containerTotal.innerText = `$${totalAmmount}`; 
 }
 
-btnBuy.addEventListener("click", confirm);
-
 function confirm(){
     productsInBag.length = 0;
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
 
-    contenedorCarritoVacio.classList.add("disabled"); 
+    emptyBagContainer.classList.add("disabled"); 
     productsBagContainer.classList.add("disabled");
     bagActionsContainer.classList.add("disabled");
     finishPurchaseContainer.classList.remove("disabled");
 }
 
+/************************* END FUNCTIONS **************************/
 
+loadProductsInBag();                            // Se cargan los productos en el carrito
+btnClear.addEventListener("click", clearBag);
+btnBuy.addEventListener("click", confirm);
 
-
-
-
-
-// poner icono de nike en la pestaña (no colgar!!)

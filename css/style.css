@@ -38,6 +38,12 @@ aside {
   position: sticky;
   top: 0; }
 
+.logo {
+  padding-left: 1rem; }
+  .logo img {
+    width: 70px;
+    height: 50px; }
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -132,10 +138,16 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: none;
-  gap: 1rem; }
+  gap: 2rem; }
+
+.product-container:hover {
+  transform: scale(1.1);
+  transition: 0.5s; }
 
 .product-img {
-  max-width: 100%; }
+  max-width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.5s; }
 
 .product-details {
   background-color: #fcfcfc;
@@ -151,7 +163,11 @@ main {
   gap: 0.25rem; }
 
 .product-title {
-  font-size: 1rem; }
+  font-size: 1rem;
+  text-align: center; }
+
+.product-price {
+  text-align: center; }
 
 .add-product {
   background-color: #121212;
@@ -168,10 +184,13 @@ main {
   background-color: #fcfcfc;
   color: #121212; }
 
-.footer-text {
-  color: #525252;
-  font-size: 0.85rem;
-  font-weight: none; }
+footer {
+  padding-right: 2.5rem; }
+  footer p {
+    color: #525252;
+    font-size: 0.75rem;
+    font-weight: none;
+    text-align: center; }
 
 /***************************** carrito.html *****************************/
 .bag-container {
@@ -254,6 +273,9 @@ main {
   border-bottom-right-radius: 1rem;
   text-transform: uppercase;
   cursor: pointer; }
+
+.bag-product-cant p, .bag-product-cant small, .bag-product-subtotal p, .bag-product-subtotal small, .bag-product-price p, .bag-product-price small {
+  text-align: center; }
 
 /* Como se trabaja responsive web design, se ocultan la siguientes clases
 en version desktop. luego, aplicando js apareceran en version mobile.

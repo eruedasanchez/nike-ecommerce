@@ -13,20 +13,20 @@ class Product{
 
 const products = [];
 
-const firstTshirt = new Product("Jordan Flight MVP", "tshirt-01", "../assets/img/remeras-camisetas/remera-1.jpg", "Remeras y Camisetas", "tshirts", 1000);
-const secondTshirt = new Product("Nike Sportswear", "tshirt-02", "../assets/img/remeras-camisetas/remera-2.jpg", "Remeras y Camisetas", "tshirts", 1000);
-const thirdTshirt = new Product("NikeCourt", "tshirt-03", "../assets/img/remeras-camisetas/remera-3.jpg", "Remeras y Camisetas", "tshirts", 1000);
-const fourthTshirt = new Product("Nike Dri-FIT UV Hyverse", "tshirt-04", "../assets/img/remeras-camisetas/remera-4.jpg", "Remeras y Camisetas", "tshirts", 1000);
+const firstTshirt = new Product("Jordan Flight MVP", "tshirt-01", "../assets/img/remeras-camisetas/remera-1.jpg", "Remeras y Camisetas", "tshirts", 12000);
+const secondTshirt = new Product("Nike Sportswear", "tshirt-02", "../assets/img/remeras-camisetas/remera-2.jpg", "Remeras y Camisetas", "tshirts", 10000);
+const thirdTshirt = new Product("NikeCourt", "tshirt-03", "../assets/img/remeras-camisetas/remera-3.jpg", "Remeras y Camisetas", "tshirts", 15000);
+const fourthTshirt = new Product("Nike Dri-FIT UV Hyverse", "tshirt-04", "../assets/img/remeras-camisetas/remera-4.jpg", "Remeras y Camisetas", "tshirts", 14000);
 
-const firstTrouser = new Product("Jordan Dri-FIT Sport Breakfast Club", "trouser-01", "../assets/img/pantalones-calzas/pantalon-1.jpg", "Pantalones y Calzas", "trousers", 1000);
-const secondTrouser = new Product("Jordan Artist Series by Umar Rashid", "trouser-02", "../assets/img/pantalones-calzas/pantalon-2.jpg", "Pantalones y Calzas", "trousers", 1000);
-const thirdTrouser = new Product("Nike Challenger", "trouser-03", "../assets/img/pantalones-calzas/pantalon-3.jpg", "Pantalones y Calzas", "trousers", 1000);
-const fourthTrouser = new Product("Nike Pro Dri-FIT", "trouser-04", "../assets/img/pantalones-calzas/pantalon-4.jpg", "Pantalones y Calzas", "trousers", 1000);
+const firstTrouser = new Product("Jordan Dri-FIT Sport", "trouser-01", "../assets/img/pantalones-calzas/pantalon-1.jpg", "Pantalones y Calzas", "trousers", 20000);
+const secondTrouser = new Product("Jordan Artist Series", "trouser-02", "../assets/img/pantalones-calzas/pantalon-2.jpg", "Pantalones y Calzas", "trousers", 22000);
+const thirdTrouser = new Product("Nike Challenger", "trouser-03", "../assets/img/pantalones-calzas/pantalon-3.jpg", "Pantalones y Calzas", "trousers", 25000);
+const fourthTrouser = new Product("Nike Pro Dri-FIT", "trouser-04", "../assets/img/pantalones-calzas/pantalon-4.jpg", "Pantalones y Calzas", "trousers", 15000);
 
-const firstJacket = new Product("Jordan Essentials", "jacket-01", "../assets/img/buzos-camperas/campera-1.jpg", "Buzos y Camperas", "jackets", 1000);
-const secondJacket = new Product("Jordan Essential", "jacket-02", "../assets/img/buzos-camperas/campera-2.jpg", "Buzos y Camperas", "jackets", 1000);
-const thirdJacket = new Product("FFF AWF", "jacket-03", "../assets/img/buzos-camperas/campera-3.jpg", "Buzos y Camperas", "jackets", 1000);
-const fourthJacket = new Product("Jordan Essentials Statement", "jacket-04", "../assets/img/buzos-camperas/campera-4.jpg", "Buzos y Camperas", "jackets", 1000);
+const firstJacket = new Product("Jordan Essentials", "jacket-01", "../assets/img/buzos-camperas/campera-1.jpg", "Buzos y Camperas", "jackets", 60000);
+const secondJacket = new Product("Jordan Essential", "jacket-02", "../assets/img/buzos-camperas/campera-2.jpg", "Buzos y Camperas", "jackets", 80000);
+const thirdJacket = new Product("FFF AWF", "jacket-03", "../assets/img/buzos-camperas/campera-3.jpg", "Buzos y Camperas", "jackets", 55000);
+const fourthJacket = new Product("Jordan Essentials Statement", "jacket-04", "../assets/img/buzos-camperas/campera-4.jpg", "Buzos y Camperas", "jackets", 75000);
 
 products.push(firstTshirt);
 products.push(secondTshirt);
@@ -100,12 +100,15 @@ function loadProducts(productsChosen){
         const div = document.createElement("div"); // creacion del elemento div
         div.classList.add("product"); // asignacion de la clase producto a div
         div.innerHTML = `
+        <div class="product-container">
         <img class="product-img" src="${product.image}" alt="${product.name}">
             <div class="product-details">
                 <h3 class="product-title">${product.name}</h3>
                 <p class="product-price">$${product.price}</p>
                 <button class="add-product" id="${product.id}">Agregar</button>
             </div>
+        </div>
+        
         `;
         
         productsContainer.append(div);

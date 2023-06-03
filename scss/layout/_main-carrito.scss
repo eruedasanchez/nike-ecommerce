@@ -65,6 +65,7 @@
 //     border-radius: 1rem;
 // }
 
+
 .bag-product-title small{
     font-size: 0.75rem;
 }
@@ -167,4 +168,10 @@
 //     text-transform: uppercase;
 //     cursor: pointer;
 // }
+
+.bag-product-cant, .bag-product-subtotal, .bag-product-price{
+    p, small{
+        text-align: center;
+    }
+}
 
