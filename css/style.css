@@ -201,8 +201,7 @@ footer {
   gap: 1.5rem; }
 
 .empty-bag, .finish-purchase {
-  color: #fcfcfc;
-  /* display: none;  */ }
+  color: #fcfcfc; }
 
 .bag-products {
   display: flex;
