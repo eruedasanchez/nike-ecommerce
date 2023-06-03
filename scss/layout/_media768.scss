@@ -1,0 +1,89 @@
+@media(max-width:1023px){
+    /* 768px a 1023px (Tablet) */
+
+    .products-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-list-products-container{
+        min-height: 100vh;
+        @include flexbox(column, none, none);
+    }
+
+    aside{
+        background-color: $color-white;
+        position: fixed;
+        z-index: 9; 
+        left: 0; 
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.60);   
+        transform: translateX(-100%); 
+        opacity: 0;
+        visibility: hidden;  
+        transition: 0.2s;
+    }
+
+    /* Se agrega con js */
+    .show-aside{
+        transform: translateX(0); 
+        opacity: 1;
+        visibility: visible;
+    }
+
+    main{
+        margin: 1rem;
+        margin-top: 0;
+        padding: 2rem; 
+    }
+
+    .products-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn-menu.active::before, .btn-menu.active::after{
+        display: none;          // Quita el border radious del extremo derecho */
+    }
+
+    .header-menu-mobile{
+        color: $color-black;
+        @include flexbox(row, space-between, center);
+        padding: 1rem;
+    }
+    
+    .open-menu{
+        background-color: transparent;
+        @include textStyle($color-black, 2rem, none);
+        border: 0;
+        cursor: pointer;
+    }
+
+    .close-menu{
+        background-color: transparent;
+        @include textStyle($color-black, 2rem, none);
+        border: 0;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: block;
+    }
+
+    .bag-product{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .bag-product-subtotal{
+        display: none;
+    }
+
+    .bag-actions{
+        flex-wrap: wrap;
+        row-gap: 1rem;
+    }
+}
+
+
+
+

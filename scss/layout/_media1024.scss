@@ -1,0 +1,6 @@
+@media(max-width:1439px){
+    /* 1024px a 1439px (Laptop) */
+    .products-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

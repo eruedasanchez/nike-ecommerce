@@ -1,0 +1,7 @@
+@media(max-width:767px){
+    /* 425px a 767px (Mobile L) */
+    
+    .products-container{
+        grid-template-columns: 1fr;
+    }
+}
