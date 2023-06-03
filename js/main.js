@@ -72,7 +72,7 @@ function addToBag(event){
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
 }
 
-function refreshQuantity(){
+const refreshQuantity = () => {
     let newQuantity = productsInBag.reduce((acc, product) => acc + product.cant, 0);   // Se cuenta la cantidad de productos del arreglo y como los repetidos se almacenan en cant, se aplica reduce 
     quantity.innerText = newQuantity;
 }
@@ -86,14 +86,14 @@ funcion loadProducts() es porque el contenedor de productos se vacia,
 los botones agregar son totalmente nuevos y no van a exitir para el documento. 
 */
 
-function refreshAddBtn(){
+const refreshAddBtn = () => {
     btnAdd = document.querySelectorAll(".add-product");
     btnAdd.forEach(btn => {
         btn.addEventListener("click", addToBag);
     })
 }
 
-function loadProducts(productsChosen){
+const loadProducts = (productsChosen) => {
     productsContainer.innerHTML = "";           // Vacia el contenedor para que no vaya acumulando las categorias filtradas dado que se le aplica un append 
     
     productsChosen.forEach(product => {

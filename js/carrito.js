@@ -68,7 +68,7 @@ function loadProductsInBag(){
     refreshTotal();
 }
 
-function refreshDeleteButtons(){
+const refreshDeleteButtons = () => {
     buttonsDelete = document.querySelectorAll(".bag-product-delete");
 
     buttonsDelete.forEach(btn => {
@@ -76,7 +76,7 @@ function refreshDeleteButtons(){
     });
 }
 
-function deleteOfBag(event){
+const deleteOfBag = (event) => {
     const idBtn = event.currentTarget.id; 
     const index = productsInBag.findIndex(product => product.id === idBtn); 
     
@@ -86,18 +86,18 @@ function deleteOfBag(event){
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
 }
 
-function clearBag(){
+const clearBag = () => {
     productsInBag.length = 0;
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
     loadProductsInBag();
 }
 
-function refreshTotal(){
+const refreshTotal = () => {
     const totalAmmount = productsInBag.reduce((acc, producto) => acc + (producto.price * producto.cant), 0);
     containerTotal.innerText = `$${totalAmmount}`; 
 }
 
-function confirm(){
+const confirm = () => {
     productsInBag.length = 0;
     localStorage.setItem("products-in-bag", JSON.stringify(productsInBag));
 
